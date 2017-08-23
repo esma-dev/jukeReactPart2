@@ -57,25 +57,9 @@ const fakeAlbums = [
 ];
 */
 
-export default class AllAlbums extends Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      albums: []
-    }
-  }
-
-  componentDidMount () {
-    axios.get('/api/albums/')
-      .then(res => res.data)
-      .then(albums => {
-        this.setState({ albums })
-      });
-  }
-
+export function AllAlbums(props) {
   render () {
-    const albums = this.state.albums;
+    const albums = this.props.albums;
     return (
       <div>
         <h3>Albums</h3>
@@ -97,6 +81,6 @@ export default class AllAlbums extends Component {
         }
         </div>
       </div>
-    );
+    )
   }
 }

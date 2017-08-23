@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { HashRouter, Route } from 'react-router-dom';
-import AllAlbums from './AllAlbums';
 import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
 import Player from './Player';
 import AllArtists from './AllArtists';
 import SingleArtist from './SingleArtist';
+import StatefulAlbums from './StatefulAlbums';
 
 export default class Main extends Component {
 
@@ -25,11 +25,11 @@ export default class Main extends Component {
             <Route
             path='/'
             exact
-            component={AllAlbums} />
+            component={StatefulAlbums} />
             <Route
             path='/albums'
             exact
-            component={AllAlbums} />
+            component={StatefulAlbums} />
             <Route path='/albums/:albumId' component={SingleAlbum} />
             <Route path='/artists/' exact component={AllArtists} />
             <Route path='/artists/:artistId' component={SingleArtist} />
