@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
 import Player from './Player';
+import NotFound from './NotFound';
 import AllArtists from './AllArtists';
 import SingleArtist from './SingleArtist';
 import StatefulAlbums from './StatefulAlbums';
@@ -19,20 +20,23 @@ export default class Main extends Component {
     <HashRouter>
       <div id="main" className="container-fluid">
         <div className="col-xs-2">
-          <Sidebar deselectAlbum={this.deselectAlbum} />
+          <Sidebar />
         </div>
           <div className="col-xs-10">
-            <Route
-            path='/'
-            exact
-            component={StatefulAlbums} />
-            <Route
-            path='/albums'
-            exact
-            component={StatefulAlbums} />
-            <Route path='/albums/:albumId' component={SingleAlbum} />
-            <Route path='/artists/' exact component={AllArtists} />
-            <Route path='/artists/:artistId' component={SingleArtist} />
+            <Switch>
+              <Route
+              path='/'
+              exact
+              component={StatefulAlbums} />
+              <Route
+              path='/albums'
+              exact
+              component={StatefulAlbums} />
+              <Route path='/albums/:albumId' component={SingleAlbum} />
+              <Route path='/artists/' exact component={AllArtists} />
+              <Route path='/artists/:artistId' component={SingleArtist} />
+              <Route path="*" component={NotFound} />
+            </Switch>
           </div>
         <Player />
       </div>
@@ -40,9 +44,3 @@ export default class Main extends Component {
     );
   }
 }
-
-/*
-this.state.selectedAlbum.id ?
-<SingleAlbum album={this.state.selectedAlbum} /> :
-<AllAlbums albums={this.state.albums} selectAlbum={this.selectAlbum} />
-*/

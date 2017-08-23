@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 /*
 const fakeAlbums = [
   {
@@ -57,9 +57,12 @@ const fakeAlbums = [
 ];
 */
 
-export function AllAlbums(props) {
-  render () {
-    const albums = this.props.albums;
+export default function AllAlbums(props) {
+
+//don't use "this" in functional components
+    const albums = props.albums;
+
+//don't use 'render' in functional components
     return (
       <div>
         <h3>Albums</h3>
@@ -67,7 +70,7 @@ export function AllAlbums(props) {
         {
           albums.map(album => (
             <div className="col-xs-4" key={ album.id }>
-              <Link to={`/albums/${album.id}`}className="thumbnail" >
+              <NavLink to={`/albums/${album.id}`}className="thumbnail" >
                 <img src={ album.imageUrl } />
                 <div className="caption">
                   <h5>
@@ -75,12 +78,13 @@ export function AllAlbums(props) {
                   </h5>
                   <small>{ album.songs.length } songs</small>
                 </div>
-              </Link>
+              </NavLink>
             </div>
           ))
         }
         </div>
       </div>
     )
-  }
+
+
 }

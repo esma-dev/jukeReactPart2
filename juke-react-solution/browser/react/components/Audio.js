@@ -7,7 +7,7 @@
  * components that need them. This is an OPTIONAL exercise that can be done at any point in Juke.
  *
  * To start, we must first cause this component to render at the top of our application
- * INSTEAD of our Main component. That way, our Main compponent will instead by rendered BY the
+ * INSTEAD of our Main component. That way, our Main compponent will instead be rendered BY the
  * Audio component, allowing to have all of the song state/behavior passed down to it.
  *
  * This is known as `component composition` - it is the same principle as composing multiple
