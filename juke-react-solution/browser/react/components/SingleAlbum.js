@@ -45,7 +45,7 @@ export default class SingleAlbum extends Component {
 
   render () {
 
-    const album = this.state.album;
+    const album = this.state.album.name ? this.state.album : this.props.album
     console.log(this.props.match.params.albumId);
 
     return (
